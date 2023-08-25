@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BMI Calculator"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textAlignment="center"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="80sp"
+
         />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_marginHorizontal="10sp"/>
 
     <EditText
+        android:id="@+id/weight"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +34,7 @@
         android:padding="15dp"
         android:hint="Masukkan berat badan"
         android:layout_margin="15sp"
-
+        android:textColor="@color/black"
     />
 
     <TextView
@@ -43,6 +45,7 @@
         android:layout_marginHorizontal="10sp"/>
 
     <EditText
+        android:id="@+id/height"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,12 +54,14 @@
         android:hint="Masukkan tinggi badan"
         android:layout_margin="15sp"
         android:layout_marginBottom="30sp"
+        android:textColor="@color/black"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="20sp">
 
     <Button
         android:layout_width="match_parent"
@@ -81,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text_number"
-        android:textSize="256sp"
+        android:textSize="150sp"
         android:background="@color/cardview_light_background"
         android:text="0"
         android:textAlignment="center"
