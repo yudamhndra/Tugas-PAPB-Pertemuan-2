@@ -2,11 +2,10 @@ package com.example.pertemuan2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputBinding
-import android.widget.EditText
 import android.widget.Toast
 import com.example.pertemuan2.databinding.ActivityMainBinding
 import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,11 +22,26 @@ class MainActivity : AppCompatActivity() {
                 val weightString = binding.weight.text.toString()
                 val heightString = binding.height.text.toString()
 
-                val weightcal = BigDecimal(weightString)
-                val heightcal = BigDecimal(heightString)
+                val weightcal = weightString.toFloatOrNull()
+                val heightcal = heightString.toFloatOrNull()
 
-                val bmi = weightcal/(heightcal*heightcal)
-                textNumber.text = bmi.toString()
+                if (weightcal != null && heightcal != null && heightcal != 0f) {
+                    // Melakukan perhitungan BMI
+                    val bmi = weightcal / (heightcal * heightcal)
+
+                    // Mengatur jumlah digit di belakang koma menjadi 1
+                    val bmiWithOneDecimal = BigDecimal(bmi.toString()).setScale(1, RoundingMode.HALF_UP)
+
+                    textNumber.text = bmiWithOneDecimal.toString()
+                } else {
+                    // Handle ketika input tidak valid
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Masukkan berat dan tinggi yang valid (tinggi tidak boleh nol)",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
             }
 
             btnToast.setOnClickListener {
